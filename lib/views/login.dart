@@ -72,7 +72,7 @@ class Login extends StatelessWidget {
                         // print(passwordController.text);
                         Navigator.of(context).pushNamed(
                         '/dashboard'
-                        )
+                        );
                       },
                     )),
                 Container(
@@ -87,7 +87,6 @@ class Login extends StatelessWidget {
                         ),
                         onPressed: () {
                           //signup screen
-                          );
                         },
                       )
                     ],
