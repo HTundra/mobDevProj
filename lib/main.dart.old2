@@ -48,7 +48,7 @@ class _State extends State<MyApp> {
                     controller: nameController,
                     decoration: InputDecoration(
                       border: OutlineInputBorder(),
-                      labelText: 'User Name',
+                      labelText: 'E-mail',
                     ),
                   ),
                 ),

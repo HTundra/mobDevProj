@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '/main.dart';
 
 class Login extends StatelessWidget {
   TextEditingController nameController = TextEditingController();
@@ -67,8 +68,11 @@ class Login extends StatelessWidget {
                       color: Colors.blue,
                       child: Text('Login'),
                       onPressed: () {
-                        print(nameController.text);
-                        print(passwordController.text);
+                        // print(nameController.text);
+                        // print(passwordController.text);
+                        Navigator.of(context).pushNamed(
+                        '/dashboard'
+                        )
                       },
                     )),
                 Container(
@@ -83,8 +87,6 @@ class Login extends StatelessWidget {
                         ),
                         onPressed: () {
                           //signup screen
-                          Navigator.of(context).pushNamed(
-                            '/dashboard'
                           );
                         },
                       )
