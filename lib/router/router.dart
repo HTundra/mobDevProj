@@ -15,11 +15,8 @@ class RouteGenerator {
         if (args is String) {
           return MaterialPageRoute(builder: (_) => Dashboard());
         }
-        // If args is not of the correct type, return an error page.
-        // You can also throw an exception while in development.
         return _errorRoute();
       default:
-        // If there is no such named route in the switch statement, e.g. /third
         return _errorRoute();
     }
   }

@@ -9,7 +9,9 @@ class Login extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Text('Sample App'),
+          title: Text('D&D Pensieve'),
+          elevation: .1,
+          backgroundColor: Color.fromRGBO(49, 87, 110, 1.0),
         ),
         body: Padding(
             padding: EdgeInsets.all(10),
@@ -71,7 +73,8 @@ class Login extends StatelessWidget {
                         // print(nameController.text);
                         // print(passwordController.text);
                         Navigator.of(context).pushNamed(
-                        '/dashboard'
+                        '/dashboard',
+                        arguments: 'Hello world!'
                         );
                       },
                     )),

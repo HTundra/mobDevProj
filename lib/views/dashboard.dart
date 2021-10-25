@@ -1,48 +1,66 @@
 import 'package:flutter/material.dart';
 
-class Dashboard extends StatelessWidget {
+class Dashboard extends StatefulWidget {
+  @override
+  _DashboardState createState() => _DashboardState();
+}
+
+class _DashboardState extends State<Dashboard> {
   @override
   Widget build(BuildContext context) {
-    final avatar = Padding(
-      padding: EdgeInsets.all(20),
-        child: Hero(
-        tag: 'logo',
-        child: SizedBox(
-          height: 160,
-          child: Image.asset('assets/ac-arno-dorian.png'),
-        )
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("D&D Pensieve"),
+        elevation: .1,
+        backgroundColor: Color.fromRGBO(49, 87, 110, 1.0),
       ),
-    );
-    final description = Padding(
-      padding: EdgeInsets.all(10),
-      child: RichText(
-        textAlign: TextAlign.justify,
-        text: TextSpan(
-          text: 'Anim ad ex officia nulla anim ipsum ut elit minim id non ad enim aute. Amet enim adipisicing excepteur ea fugiat excepteur enim veniam veniam do quis magna. Cupidatat quis exercitation ut ipsum dolor ipsum. Qui commodo nostrud magna consectetur. Nostrud culpa laboris Lorem aliqua non ut veniam culpa deserunt laborum occaecat officia.',
-          style: TextStyle(color: Colors.black, fontSize: 20)
+      body: Container(
+        padding: EdgeInsets.symmetric(vertical: 20.0, horizontal: 2.0),
+        child: GridView.count(
+          crossAxisCount: 2,
+          padding: EdgeInsets.all(3.0),
+          children: <Widget>[
+            makeDashboardItem("Classes", Icons.book),
+            makeDashboardItem("Spells", Icons.alarm),
+            makeDashboardItem("Cantrips", Icons.alarm),
+            makeDashboardItem("Races", Icons.alarm),
+            makeDashboardItem("Professions", Icons.alarm),
+            makeDashboardItem("Something to make it symmetrical", Icons.alarm)
+          ],
         ),
       ),
     );
-    final buttonLogout = FlatButton(
-      child: Text('Logout', style: TextStyle(color: Colors.black87, fontSize: 16),),
-      onPressed: () {
+  }
 
-      }
-    );
-    return SafeArea(
-      child: Scaffold(
-        body: Center(
-          child: ListView(
-            shrinkWrap: true,
-            padding: EdgeInsets.symmetric(horizontal: 20),
-            children: <Widget>[
-              avatar,
-              description,
-              buttonLogout
-            ],
+  Card makeDashboardItem(String title, IconData icon) {
+    return Card(
+        elevation: 1.0,
+        margin: new EdgeInsets.all(8.0),
+        child: Container(
+          decoration: BoxDecoration(color: Color.fromRGBO(220, 220, 220, 1.0)),
+          child: new InkWell(
+            onTap: () {},
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              mainAxisSize: MainAxisSize.min,
+              verticalDirection: VerticalDirection.down,
+              children: <Widget>[
+                SizedBox(height: 50.0),
+                Center(
+                    child: Icon(
+                  icon,
+                  size: 40.0,
+                  color: Colors.black,
+                )),
+                SizedBox(height: 20.0),
+                new Center(
+                  child: new Text(title,
+                      style:
+                          new TextStyle(fontSize: 18.0, color: Colors.black)),
+                )
+              ],
+            ),
           ),
-        ),
-      )
-    );
+        ));
   }
 }
